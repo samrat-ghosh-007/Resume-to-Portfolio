@@ -1,6 +1,8 @@
 exports.generateHTML = async (resumeText) => {
   try {
-    const prompt = `You are an expert UI/UX designer and senior frontend developer.
+    const prompt = `
+    
+    You are an expert UI/UX designer and senior frontend developer.
 
 Create a visually stunning, modern portfolio website.
 
