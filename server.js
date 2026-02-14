@@ -2,7 +2,8 @@ require("dotenv").config();
 const express = require("express");
 const generateRoute = require("./routes/generate.route");
 const jobRoutes = require("./routes/job.route");
-const resumeRoutes = require("./routes/resume.routes");
+const resumeRoutes = require("./routes/resume.route");
+const analyzeRoutes = require("./routes/analyze.route");
 
 
 
@@ -15,6 +16,7 @@ app.use(express.json());
 app.use("/api/generate", generateRoute);
 app.use("/api/jobs", jobRoutes);
 app.use("/api/resume", resumeRoutes);
+app.use("/api/analyze", analyzeRoutes);
 
 
 app.listen(process.env.PORT, () => {
