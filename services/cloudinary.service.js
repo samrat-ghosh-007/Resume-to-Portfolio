@@ -73,3 +73,31 @@ exports.uploadPDF = async (filePath) => {
 
   return result;
 };
+
+
+// exports.uploadImage = async (buffer) => {
+//   const base64 = buffer.toString("base64");
+
+//   const result = await cloudinary.uploader.upload(
+//     `data:image/png;base64,${base64}`,
+//     {
+//       folder: "portfolio_profiles",
+//     }
+//   );
+
+//   return result.secure_url;
+// };
+
+exports.uploadImage = async (buffer, mimetype) => {
+
+  const base64 = buffer.toString("base64");
+
+  const result = await cloudinary.uploader.upload(
+    `data:${mimetype};base64,${base64}`,
+    {
+      folder: "portfolio_profiles",
+    }
+  );
+
+  return result.secure_url;
+};

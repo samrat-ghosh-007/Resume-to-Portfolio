@@ -3,6 +3,15 @@ const router = express.Router();
 const multer = require("multer");
 const {analyzeResume} = require("../controllers/analyze.controller");
 
+router.use((req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "http://localhost:5173");
+    res.header("Access-Control-Allow-Headers", "Content-Type");
+    if (req.method === "OPTIONS") {
+        return res.sendStatus(200);
+    }
+    next();
+});
+
 
 const upload = multer({
   storage: multer.memoryStorage(),
